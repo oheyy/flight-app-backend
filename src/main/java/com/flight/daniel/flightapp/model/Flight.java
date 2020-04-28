@@ -3,7 +3,7 @@ package com.flight.daniel.flightapp.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "flight")
+@Document(collection  = "flight")
 public class Flight {
     @Id
     private int id;
