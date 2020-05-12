@@ -7,4 +7,5 @@ import java.util.List;
 public interface FlightService {
     public void createFlight(Flight flight);
     public List<Flight>getAllFlights();
+    public List<Flight>searchFlights(String countryFrom,String countryTo);
 }

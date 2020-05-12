@@ -23,4 +23,9 @@ public class FlightController {
     public List<Flight> retrieveAllFlights(){
         return service.getAllFlights();
     }
+
+    @GetMapping(value = "retrieve")
+    public List<Flight> searchFlights(@RequestParam String countryFrom, @RequestParam String countryTo){
+        return service.searchFlights(countryFrom, countryTo);
+    }
 }

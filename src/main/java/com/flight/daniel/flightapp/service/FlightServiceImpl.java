@@ -30,4 +30,11 @@ public class FlightServiceImpl implements FlightService {
     public List<Flight> getAllFlights() {
         return flightDao.findAll();
     }
+
+    @Override
+    public List<Flight> searchFlights(String countryFrom, String countryTo){
+        return flightDao.searchFlights(countryFrom, countryTo);
+    }
+
+
 }
