@@ -10,7 +10,7 @@ public class Flight {
     private String airline;
     private String countryFrom;
     private String countryTo;
-    private long price;
+    private float price;
     private int hours;
 
     public int getId() {
@@ -45,11 +45,11 @@ public class Flight {
         this.countryTo = countryTo;
     }
 
-    public long getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

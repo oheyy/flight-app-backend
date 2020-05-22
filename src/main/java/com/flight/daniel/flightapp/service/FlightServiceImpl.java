@@ -17,13 +17,14 @@ public class FlightServiceImpl implements FlightService {
     SequenceIdService sequenceIdService;
 
     @Override
-    public void createFlight(Flight flight) {
+    public Flight createFlight(Flight flight) {
         try {
             flight.setId(sequenceIdService.getNextSequenceId("flight"));
         } catch (Exception e) {
             e.printStackTrace();
         }
         flightDao.save(flight);
+        return flight;
     }
 
     @Override
