@@ -6,12 +6,14 @@ import com.flight.daniel.flightapp.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class FlightQueryResolver implements GraphQLQueryResolver {
     @Autowired
     FlightService flightService;
 
-    public Flight flight(String countryFrom, String countryTo){
-        return flightService.searchFlights(countryFrom, countryTo).get(0);
+    public List<Flight> flight(String countryFrom, String countryTo){
+        return flightService.searchFlights(countryFrom, countryTo);
     }
 }

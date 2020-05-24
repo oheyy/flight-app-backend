@@ -1,0 +1,26 @@
+input FlightInput {
+    airline: String,
+    countryFrom: String,
+    countryTo: String,
+    price: Float,
+    hours: Int
+}
+type Flight {
+    id: ID!,
+    airline: String,
+    countryFrom: String,
+    countryTo: String,
+    price: Float,
+    hours: Int
+}
+
+type Query {
+    flight(countryFrom: String, countryTo: String): [Flight]!;
+}
+
+type Mutation {
+    createFlight(input:FlightInput): Flight;
+}
+
+
+
