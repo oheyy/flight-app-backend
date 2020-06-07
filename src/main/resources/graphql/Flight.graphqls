@@ -5,6 +5,13 @@ input FlightInput {
     price: Float,
     hours: Int
 }
+input UserInput {
+    userName: String,
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: String
+}
 type Flight {
     id: ID!,
     airline: String,
@@ -13,13 +20,22 @@ type Flight {
     price: Float,
     hours: Int
 }
-
+type User {
+    id: ID!,
+    userName: String,
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: String
+}
 type Query {
-    flight(countryFrom: String, countryTo: String): [Flight]!;
+    flight(countryFrom: String, countryTo: String): [Flight]!
+    searchUser(userName: String, password: String): Boolean!
 }
 
 type Mutation {
-    createFlight(input:FlightInput): Flight;
+    createFlight(input:FlightInput): Flight
+    createUser(input:UserInput): User
 }
 
 
