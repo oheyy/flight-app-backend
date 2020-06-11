@@ -21,7 +21,7 @@ public class FlightQueryResolver implements GraphQLQueryResolver {
         return flightService.searchFlights(countryFrom, countryTo);
     }
 
-    public boolean searchUser(String userName, String password){
+    public String searchUser(String userName, String password){
         return userService.searchUser(userName, password);
     }
 }

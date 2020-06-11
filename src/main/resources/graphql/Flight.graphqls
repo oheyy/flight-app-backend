@@ -30,7 +30,7 @@ type User {
 }
 type Query {
     flight(countryFrom: String, countryTo: String): [Flight]!
-    searchUser(userName: String, password: String): Boolean!
+    searchUser(userName: String, password: String): String!
 }
 
 type Mutation {

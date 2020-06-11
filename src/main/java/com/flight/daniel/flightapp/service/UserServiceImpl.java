@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -32,14 +33,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean searchUser(String username, String password) {
-        boolean matched = false;
+    public String searchUser(String username, String password) {
+        String token = null;
         List<User> users = userDao.searchUser(username);
-        return users.stream()
-                .anyMatch(user ->
-                {
-                    return bCryptPasswordEncoder.matches(password, user.getPassword());
-                }
-                );
+        Optional<User> foundUser = users.stream().filter(user -> bCryptPasswordEncoder.matches(password, user.getPassword())).findFirst();
+        if(foundUser.isPresent()){
+            token = foundUser.get().getPassword();
+        }
+        return token;
+    }
+
+    @Override
+    public boolean loginUser(String username, String password) {
+        List<User> usersFound = userDao.searchUser(username);
+
+        return usersFound.stream().anyMatch(user -> bCryptPasswordEncoder.matches(password, user.getPassword()));
     }
 }

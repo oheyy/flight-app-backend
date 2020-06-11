@@ -4,5 +4,6 @@ import com.flight.daniel.flightapp.model.User;
 
 public interface UserService {
     public User createUser(User user);
-    public boolean searchUser(String username, String password);
+    public String searchUser(String username, String password);
+    public boolean loginUser(String username, String password);
 }
